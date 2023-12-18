@@ -1,0 +1,35 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.orandja.failure////PointingToDeclaration/failure/net.orandja.failure/index.html
+$dokka.location:net.orandja.failure//copy/net.orandja.failure.Failure#kotlin.String#kotlin.String?#kotlin.String?#kotlin.Throwable?#kotlin.collections.Set[net.orandja.failure.Failure]?/PointingToDeclaration/failure/net.orandja.failure/copy.html
+$dokka.location:net.orandja.failure//delegatedSerialDescriptor/#/PointingToDeclaration/failure/net.orandja.failure/delegated-serial-descriptor.html
+$dokka.location:net.orandja.failure//delegatedSerialDescriptor/#kotlin.Function0[kotlinx.serialization.descriptors.SerialDescriptor]/PointingToDeclaration/failure/net.orandja.failure/delegated-serial-descriptor.html
+$dokka.location:net.orandja.failure//failure/#kotlin.String#kotlin.String?#kotlin.String?#kotlin.Throwable?#kotlin.collections.Set[net.orandja.failure.Failure]?/PointingToDeclaration/failure/net.orandja.failure/failure.html
+$dokka.location:net.orandja.failure//namedFailure/#kotlin.String?#kotlin.String?#kotlin.Throwable?#kotlin.collections.Set[net.orandja.failure.Failure]?/PointingToDeclaration/failure/net.orandja.failure/named-failure.html
+$dokka.location:net.orandja.failure//toFailure/TypeParam(bounds=[kotlin.Throwable])#kotlin.String#kotlin.String?#kotlin.String?#kotlin.collections.Set[net.orandja.failure.Failure]?/PointingToDeclaration/failure/net.orandja.failure/to-failure.html
+$dokka.location:net.orandja.failure/Failure///PointingToDeclaration/failure/net.orandja.failure/-failure/index.html
+$dokka.location:net.orandja.failure/Failure/attached/#/PointingToDeclaration/failure/net.orandja.failure/-failure/attached.html
+$dokka.location:net.orandja.failure/Failure/cause/#/PointingToDeclaration/failure/net.orandja.failure/-failure/cause.html
+$dokka.location:net.orandja.failure/Failure/defaults/#/PointingToDeclaration/failure/net.orandja.failure/-failure/defaults.html
+$dokka.location:net.orandja.failure/Failure/description/#/PointingToDeclaration/failure/net.orandja.failure/-failure/description.html
+$dokka.location:net.orandja.failure/Failure/id/#/PointingToDeclaration/failure/net.orandja.failure/-failure/id.html
+$dokka.location:net.orandja.failure/Failure/information/#/PointingToDeclaration/failure/net.orandja.failure/-failure/information.html
+$dokka.location:net.orandja.failure/Failure/throws/#/PointingToDeclaration/failure/net.orandja.failure/-failure/throws.html
+$dokka.location:net.orandja.failure/FailureException.Companion///PointingToDeclaration/failure/net.orandja.failure/-failure-exception/-companion/index.html
+$dokka.location:net.orandja.failure/FailureException///PointingToDeclaration/failure/net.orandja.failure/-failure-exception/index.html
+$dokka.location:net.orandja.failure/FailureException/FailureException/#net.orandja.failure.Failure/PointingToDeclaration/failure/net.orandja.failure/-failure-exception/-failure-exception.html
+$dokka.location:net.orandja.failure/FailureException/failure/#/PointingToDeclaration/failure/net.orandja.failure/-failure-exception/failure.html
+$dokka.location:net.orandja.failure/FailureSerializer///PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/index.html
+$dokka.location:net.orandja.failure/FailureSerializer/FailureSerializer/#/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/-failure-serializer.html
+$dokka.location:net.orandja.failure/FailureSerializer/descriptor/#/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/descriptor.html
+$dokka.location:net.orandja.failure/FailureSerializer/deserialize/#kotlinx.serialization.encoding.Decoder/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/deserialize.html
+$dokka.location:net.orandja.failure/FailureSerializer/serialize/#kotlinx.serialization.encoding.Encoder#net.orandja.failure.Failure/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/serialize.html
+$dokka.location:net.orandja.failure/GenericFailure///PointingToDeclaration/failure/net.orandja.failure/-generic-failure/index.html
+$dokka.location:net.orandja.failure/GenericFailure/GenericFailure/#kotlin.String#kotlin.String?#kotlin.String?#kotlin.Throwable?#kotlin.collections.Set[net.orandja.failure.Failure]?/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/-generic-failure.html
+$dokka.location:net.orandja.failure/GenericFailure/attached/#/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/attached.html
+$dokka.location:net.orandja.failure/GenericFailure/cause/#/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/cause.html
+$dokka.location:net.orandja.failure/GenericFailure/description/#/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/description.html
+$dokka.location:net.orandja.failure/GenericFailure/id/#/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/id.html
+$dokka.location:net.orandja.failure/GenericFailure/information/#/PointingToDeclaration/failure/net.orandja.failure/-generic-failure/information.html
+net.orandja.failure
+
