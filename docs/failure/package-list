@@ -19,7 +19,7 @@ $dokka.location:net.orandja.failure/Failure/throws/#/PointingToDeclaration/fail
 $dokka.location:net.orandja.failure/FailureException.Companion///PointingToDeclaration/failure/net.orandja.failure/-failure-exception/-companion/index.html
 $dokka.location:net.orandja.failure/FailureException///PointingToDeclaration/failure/net.orandja.failure/-failure-exception/index.html
 $dokka.location:net.orandja.failure/FailureException/FailureException/#net.orandja.failure.Failure/PointingToDeclaration/failure/net.orandja.failure/-failure-exception/-failure-exception.html
-$dokka.location:net.orandja.failure/FailureException/failure/#/PointingToDeclaration/failure/net.orandja.failure/-failure-exception/failure.html
+$dokka.location:net.orandja.failure/FailureException/cause/#/PointingToDeclaration/failure/net.orandja.failure/-failure-exception/cause.html
 $dokka.location:net.orandja.failure/FailureSerializer///PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/index.html
 $dokka.location:net.orandja.failure/FailureSerializer/FailureSerializer/#/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/-failure-serializer.html
 $dokka.location:net.orandja.failure/FailureSerializer/descriptor/#/PointingToDeclaration/failure/net.orandja.failure/-failure-serializer/descriptor.html
