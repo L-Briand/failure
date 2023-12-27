@@ -9,13 +9,14 @@ class FailureException {
 
     companion object {
         private const val TAG = "EXAMPLE"
+        private const val CODE = 100
         private const val DESCRIPTION = "DESCRIPTION"
         private const val INFO = "INFO"
     }
 
     private val cause = Exception("AN EXCEPTION")
     private val failureEmpty = failure(TAG)
-    private val failureFull = failure(TAG, DESCRIPTION, INFO)
+    private val failureFull = failure(TAG, CODE, DESCRIPTION, INFO)
     private val failureAttach1 = failure(TAG, attached = setOf(failureEmpty, failureFull))
     private val failureAttach2 = failure(TAG, attached = setOf(failureAttach1))
     private val failureException = failure(TAG, cause = cause)
@@ -33,7 +34,7 @@ class FailureException {
         val exception = catch { failureFull.throws() }
         assertEquals(failureFull, exception.failure)
         assertEquals(null, exception.cause)
-        assertEquals("$TAG [$DESCRIPTION] $INFO", exception.message)
+        assertEquals("$TAG [$CODE] ($DESCRIPTION) $INFO", exception.message)
     }
 
     @Test
@@ -44,7 +45,7 @@ class FailureException {
         val message = """
             $TAG
             > $TAG
-            > $TAG [$DESCRIPTION] $INFO
+            > $TAG [$CODE] ($DESCRIPTION) $INFO
         """.trimIndent()
         assertEquals(message, exception.message)
     }
@@ -58,7 +59,7 @@ class FailureException {
             $TAG
             > $TAG
             > > $TAG
-            > > $TAG [$DESCRIPTION] $INFO
+            > > $TAG [$CODE] ($DESCRIPTION) $INFO
         """.trimIndent()
         assertEquals(message, exception.message)
     }

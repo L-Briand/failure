@@ -11,6 +11,7 @@ import kotlin.test.assertEquals
 class FailureJson {
     companion object {
         private const val TAG = "EXAMPLE"
+        private const val CODE = 100
         private const val DESCRIPTION = "DESCRIPTION"
         private const val INFO = "INFO"
     }
@@ -18,12 +19,12 @@ class FailureJson {
     private val codec = Json { encodeDefaults = false }
 
     private val failureEmpty = failure(TAG)
-    private val failureFull = failure(TAG, DESCRIPTION, INFO)
+    private val failureFull = failure(TAG, CODE, DESCRIPTION, INFO)
     private val failureAttach = failure(TAG, attached = setOf(failureEmpty, failureFull))
     private val failureException = failure(TAG, cause = Exception("AN EXCEPTION"))
 
     private val jsonEmpty = """{"id":"$TAG"}"""
-    private val jsonFull = """{"id":"$TAG","description":"$DESCRIPTION","information":"$INFO"}"""
+    private val jsonFull = """{"id":"$TAG","code":$CODE,"description":"$DESCRIPTION","information":"$INFO"}"""
     private val jsonWithAttach = """{"id":"$TAG","attached":[$jsonEmpty,$jsonFull]}"""
 
     @Test

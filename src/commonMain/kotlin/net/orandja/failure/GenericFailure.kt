@@ -17,6 +17,7 @@ import kotlinx.serialization.Transient
 @Serializable
 data class GenericFailure(
     override val id: String,
+    override val code: Int? = null,
     override val description: String? = null,
     override val information: String? = null,
     @Transient override val cause: Throwable? = null,

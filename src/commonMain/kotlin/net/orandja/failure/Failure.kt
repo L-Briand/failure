@@ -12,6 +12,10 @@ interface Failure {
     /** A unique identifier for the failure. */
     val id: String
 
+
+    /** An optional integer code associated with a failure. */
+    val code: Int?
+
     /** A human-readable description of the failure. */
     val description: String?
 
@@ -40,7 +44,7 @@ interface Failure {
      * @return The [GenericFailure] instance.
      */
     fun defaults(): GenericFailure = if (this is GenericFailure) this
-    else GenericFailure(id, description, information, cause, attached)
+    else GenericFailure(id, code, description, information, cause, attached)
 }
 
 /**
@@ -59,6 +63,7 @@ interface Failure {
  * @return A new instance of [GenericFailure].
  */
 fun namedFailure(
+    code: Int? = null,
     description: String? = null,
     information: String? = null,
     cause: Throwable? = null,
@@ -67,7 +72,7 @@ fun namedFailure(
     var delegate: GenericFailure? = null
     override fun getValue(thisRef: Any?, property: KProperty<*>): GenericFailure {
         delegate?.let { return it }
-        delegate = GenericFailure(property.name, description, information, cause, attached)
+        delegate = GenericFailure(property.name, code, description, information, cause, attached)
         return delegate !!
     }
 }
@@ -84,11 +89,12 @@ fun namedFailure(
  */
 fun failure(
     id: String,
+    code: Int? = null,
     description: String? = null,
     information: String? = null,
     cause: Throwable? = null,
     attached: Set<Failure>? = null,
-) = GenericFailure(id, description, information, cause, attached)
+) = GenericFailure(id, code, description, information, cause, attached)
 
 
 /**
@@ -103,11 +109,12 @@ fun failure(
  */
 fun Failure.genericCopy(
     id: String = this.id,
+    code: Int? = this.code,
     description: String? = this.description,
     information: String? = this.information,
     cause: Throwable? = this.cause,
     attached: Set<Failure>? = this.attached?.map { it.genericCopy() }?.toSet(),
-): Failure = GenericFailure(id, description, information, cause, attached)
+): Failure = GenericFailure(id, code, description, information, cause, attached)
 
 
 /**
@@ -122,7 +129,8 @@ fun Failure.genericCopy(
  */
 inline fun <reified T : Throwable> T.toFailure(
     id: String = "EXCEPTION",
+    code: Int? = null,
     description: String? = T::class.simpleName,
     information: String? = message,
     attached: Set<Failure>? = null,
-): Failure = GenericFailure(id, description, information, this, attached)
+): Failure = GenericFailure(id, code, description, information, this, attached)

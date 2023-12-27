@@ -20,10 +20,15 @@ class FailureException(val failure: Failure) : Exception(buildString { buildMess
                 builder.append(prepend)
             }
             builder.append(failure.id)
-            failure.description?.let {
+            failure.code?.let {
                 builder.append(" [")
                 builder.append(it)
                 builder.append(']')
+            }
+            failure.description?.let {
+                builder.append(" (")
+                builder.append(it)
+                builder.append(')')
             }
             failure.information?.let {
                 builder.append(" ")
