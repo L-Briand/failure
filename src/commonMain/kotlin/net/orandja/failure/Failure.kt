@@ -16,10 +16,10 @@ interface Failure {
     /** An optional integer code associated with a failure. */
     val code: Int?
 
-    /** A human-readable description of the failure. */
+    /** A human-readable description of the failure. Normally, this field never changes. */
     val description: String?
 
-    /** Additional information about the failure. */
+    /** Additional information about the failure. Implementation can add anything related to the failure here. */
     val information: String?
 
     /** The underlying cause of the failure, if any. This field is not serialized. */

@@ -3,6 +3,7 @@ package net.orandja.test
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import net.orandja.failure.Failure
+import net.orandja.failure.FailureException
 import net.orandja.failure.failure
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -36,9 +37,25 @@ class FailureJson {
     }
 
     @Test
+    fun serializeException() {
+        assertEquals(jsonEmpty, codec.encodeToString(catch { failureEmpty.throws() }))
+        assertEquals(jsonFull, codec.encodeToString(catch { failureFull.throws() }))
+        assertEquals(jsonWithAttach, codec.encodeToString(catch { failureAttach.throws() }))
+        assertEquals(jsonEmpty, codec.encodeToString(catch { failureException.throws() }))
+    }
+
+    @Test
     fun deserialize() {
         assertEquals(codec.decodeFromString<Failure>(jsonEmpty), failureEmpty)
         assertEquals(codec.decodeFromString<Failure>(jsonFull), failureFull)
         assertEquals(codec.decodeFromString<Failure>(jsonWithAttach), failureAttach)
+    }
+
+    private fun catch(block: () -> Nothing): FailureException {
+        try {
+            block()
+        } catch (e: FailureException) {
+            return e
+        }
     }
 }

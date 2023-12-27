@@ -1,12 +1,22 @@
 package net.orandja.failure
 
+import kotlinx.serialization.Serializable
+
 
 /**
  * Exception class representing a Failure during code execution.
+ * This class is also a failure.
  *
  * @property failure The Failure instance associated with the exception.
  */
-class FailureException(val failure: Failure) : Exception(buildString { buildMessage(failure, this) }, failure.cause) {
+@Serializable(FailureSerializer::class)
+class FailureException(
+    private val failure: Failure,
+) : Exception(
+    buildString { buildMessage(failure) },
+    failure.cause
+), Failure by failure {
+
     companion object {
         /**
          * Builds the exception message based on the given [Failure].
@@ -14,30 +24,32 @@ class FailureException(val failure: Failure) : Exception(buildString { buildMess
          * @param failure The Failure instance.
          * @param builder The StringBuilder to append the message to. If not provided, a new StringBuilder will be created.
          */
-        private fun buildMessage(failure: Failure, builder: StringBuilder = StringBuilder(), prepend: String = "") {
+        private fun StringBuilder.buildMessage(failure: Failure, prepend: String = "") {
             if (prepend.isNotEmpty()) {
-                builder.append('\n')
-                builder.append(prepend)
+                append('\n')
+                append(prepend)
             }
-            builder.append(failure.id)
+            append(failure.id)
             failure.code?.let {
-                builder.append(" [")
-                builder.append(it)
-                builder.append(']')
+                append(" [")
+                append(it)
+                append(']')
             }
             failure.description?.let {
-                builder.append(" (")
-                builder.append(it)
-                builder.append(')')
+                append(" (")
+                append(it)
+                append(')')
             }
             failure.information?.let {
-                builder.append(" ")
-                builder.append(it)
+                append(" ")
+                append(it)
             }
             val attached = failure.attached ?: return
             attached.forEach {
-                buildMessage(it, builder, "$prepend> ")
+                buildMessage(it, "$prepend> ")
             }
         }
     }
+
+    override val cause: Throwable? get() = failure.cause
 }

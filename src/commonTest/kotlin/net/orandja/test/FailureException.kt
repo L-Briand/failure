@@ -1,9 +1,11 @@
 package net.orandja.test
 
+import net.orandja.failure.Failure
 import net.orandja.failure.FailureException
 import net.orandja.failure.failure
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 class FailureException {
 
@@ -24,7 +26,7 @@ class FailureException {
     @Test
     fun empty() {
         val exception = catch { failureEmpty.throws() }
-        assertEquals(failureEmpty, exception.failure)
+        assertFailureEquals(failureEmpty, exception)
         assertEquals(TAG, exception.message)
         assertEquals(null, exception.cause)
     }
@@ -32,7 +34,7 @@ class FailureException {
     @Test
     fun full() {
         val exception = catch { failureFull.throws() }
-        assertEquals(failureFull, exception.failure)
+        assertFailureEquals(failureFull, exception)
         assertEquals(null, exception.cause)
         assertEquals("$TAG [$CODE] ($DESCRIPTION) $INFO", exception.message)
     }
@@ -40,7 +42,7 @@ class FailureException {
     @Test
     fun attach() {
         val exception = catch { failureAttach1.throws() }
-        assertEquals(failureAttach1, exception.failure)
+        assertFailureEquals(failureAttach1, exception)
         assertEquals(null, exception.cause)
         val message = """
             $TAG
@@ -53,7 +55,7 @@ class FailureException {
     @Test
     fun attach2() {
         val exception = catch { failureAttach2.throws() }
-        assertEquals(failureAttach2, exception.failure)
+        assertFailureEquals(failureAttach2, exception)
         assertEquals(null, exception.cause)
         val message = """
             $TAG
@@ -67,9 +69,17 @@ class FailureException {
     @Test
     fun exception() {
         val exception = catch { failureException.throws() }
-        assertEquals(failureException, exception.failure)
+        assertFailureEquals(failureException, exception)
         assertEquals(TAG, exception.message)
         assertEquals(cause, exception.cause)
+    }
+
+    @Test
+    fun exceptionEquality() {
+        val failure2: FailureException = catch { failureEmpty.throws() }
+        assertEquals(failureEmpty.id, failure2.id)
+        assertEquals(failureEmpty, failure2.defaults())
+        assertNotEquals<Failure>(failureEmpty, failure2)
     }
 
     private fun catch(block: () -> Nothing): FailureException {
@@ -79,6 +89,4 @@ class FailureException {
             return e
         }
     }
-
-
 }
