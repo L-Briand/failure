@@ -15,7 +15,7 @@ repositories {
 }
 val commonMain by getting {
     dependencies {
-        implementation("net.orandja.kt:failure:1.1.1")
+        implementation("net.orandja.kt:failure:2.0.0")
     }
 }
 ```
@@ -27,7 +27,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("net.orandja.kt:failure:1.1.1")
+    implementation("net.orandja.kt:failure:2.0.0")
 }
 ```
 
@@ -57,7 +57,7 @@ You can implement it whenever it seems OK to do so.
 For example, a failure that throws is also a failure.
 
 ```kotlin
-val failure = failure("MY_FAILURE", code = 200)
+val failure: Failure = failure("MY_FAILURE", code = 200)
 try {
     failure.throws()
 } catch (e: FailureException) {
@@ -84,7 +84,7 @@ assert(failure1.id == failure2.id)
 assert(failure1 == failure2.defaults()) // failure1 is a GenericFailure
 
 // This fails
-assert(failure1 == failure2)''
+assert(failure1 == failure2)
 ```
 
 ### Serialization
@@ -93,7 +93,7 @@ Any class that implements the `Failure` interface can use the `FailureSerializer
 For example, the `FailureException` is a `Failure`, it can be serialized but cannot be deserialized.
 
 ```kotlin
-lateinit var failure = FailureException(failure("FAILURE"))
+var failure: Throwable = FailureException(failure("FAILURE"))
 val json = Json.encodeToString<Failure>(failure)
 println(json) //  {"id":"FAILURE"}
 ```
