@@ -26,63 +26,106 @@
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
 <link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
 <script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
     <div class="root">
-<nav class="navigation" id="navigation-wrapper">
-    <div class="navigation--inner">
-        <div class="navigation-title">
-            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
-            <div class="library-name">
-                    <a class="library-name--link" href="../../../index.html">
-                            failure
-                    </a>
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    failure
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+2.0.0"        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active=""
+                        data-filter=":/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":/commonMain"
+                                       data-filter=":/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div class="library-version">
-1.1.1            </div>
         </div>
-        <div class="filter-section" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":dokkaHtml/commonMain">common</button>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
         </div>
-    </div>
-    <div class="navigation-controls">
-        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
-        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
-    </div>
-</nav>
+    </nav>
         <div id="container">
             <div class="sidebar" id="leftColumn">
-                <div class="sidebar--inner" id="sideMenu"></div>
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    failure
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
             </div>
             <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="failure::net.orandja.failure/FailureException///PointingToDeclaration//788909594">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="failure::net.orandja.failure/FailureException///PointingToDeclaration//1558683979">
   <div class="breadcrumbs"><a href="../../../index.html">failure</a><span class="delimiter">/</span><a href="../index.html">net.orandja.failure</a><span class="delimiter">/</span><span class="current">FailureException</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Failure</span><wbr></wbr><span><span>Exception</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span><span class="token punctuation">(</span><span>with<span class="token operator"> = </span><a href="../-failure-serializer/index.html">FailureSerializer::class</a></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">class </span><a href="index.html">FailureException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">failure<span class="token operator">: </span><a href="../-failure/index.html">Failure</a></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html">Exception</a>, <a href="../-failure/index.html">Failure</a></div><p class="paragraph">Exception class representing a Failure during code execution. This class is also a failure.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span><span class="token punctuation">(</span><span>with<span class="token operator"> = </span><a href="../-failure-serializer/index.html">FailureSerializer::class</a></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">class </span><a href="index.html">FailureException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">failure<span class="token operator">: </span><a href="../-failure/index.html">Failure</a></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-exception/index.html">Exception</a>, <a href="../-failure/index.html">Failure</a></div><p class="paragraph">Exception class representing a Failure during code execution. This class is also a failure.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="454947625%2FConstructors%2F788909594" anchor-label="FailureException" id="454947625%2FConstructors%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+        <div class="table"><a data-name="454947625%2FConstructors%2F1558683979" anchor-label="FailureException" id="454947625%2FConstructors%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-failure-exception.html"><span>Failure</span><wbr></wbr><span><span>Exception</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="454947625%2FConstructors%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="454947625%2FConstructors%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">failure<span class="token operator">: </span><a href="../-failure/index.html">Failure</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">failure<span class="token operator">: </span><a href="../-failure/index.html">Failure</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -91,17 +134,17 @@
       </div>
       <div data-togglable="TYPE">
         <h2 class="">Types</h2>
-        <div class="table"><a data-name="-150485163%2FClasslikes%2F788909594" anchor-label="Companion" id="-150485163%2FClasslikes%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+        <div class="table"><a data-name="-150485163%2FClasslikes%2F1558683979" anchor-label="Companion" id="-150485163%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-150485163%2FClasslikes%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-150485163%2FClasslikes%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -110,107 +153,122 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
-        <div class="table"><a data-name="-672832005%2FProperties%2F788909594" anchor-label="attached" id="-672832005%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+        <div class="table"><a data-name="-672832005%2FProperties%2F1558683979" anchor-label="attached" id="-672832005%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/attached.html"><span><span>attached</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672832005%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672832005%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/attached.html">attached</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-failure/index.html">Failure</a><span class="token operator">&gt;</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">A set of other failures that are attached to this failure.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/attached.html">attached</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../-failure/index.html">Failure</a><span class="token operator">&gt;</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">A set of other failures that are attached to this failure.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-114857403%2FProperties%2F788909594" anchor-label="cause" id="-114857403%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="-114857403%2FProperties%2F1558683979" anchor-label="cause" id="-114857403%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="cause.html"><span><span>cause</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-114857403%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-114857403%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="cause.html">cause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The underlying cause of the failure, if any. This field is not serialized.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="cause.html">cause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The underlying cause of the failure, if any. This field is not serialized.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1659693778%2FProperties%2F788909594" anchor-label="code" id="1659693778%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="1659693778%2FProperties%2F1558683979" anchor-label="code" id="1659693778%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/code.html"><span><span>code</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1659693778%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1659693778%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/code.html">code</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">An optional integer code associated with a failure.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/code.html">code</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">An optional integer code associated with a failure.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1728372577%2FProperties%2F788909594" anchor-label="description" id="-1728372577%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="-1728372577%2FProperties%2F1558683979" anchor-label="description" id="-1728372577%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/description.html"><span><span>description</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1728372577%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1728372577%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/description.html">description</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">A human-readable description of the failure. Normally, this field never changes.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/description.html">description</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">A human-readable description of the failure. Normally, this field never changes.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1549929444%2FProperties%2F788909594" anchor-label="id" id="1549929444%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="1549929444%2FProperties%2F1558683979" anchor-label="id" id="1549929444%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/id.html"><span><span>id</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1549929444%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1549929444%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/id.html">id</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">A unique identifier for the failure.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/id.html">id</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">A unique identifier for the failure.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-1864702609%2FProperties%2F788909594" anchor-label="information" id="-1864702609%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="-1864702609%2FProperties%2F1558683979" anchor-label="information" id="-1864702609%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/information.html"><span><span>information</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1864702609%2FProperties%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1864702609%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/information.html">information</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Additional information about the failure. Implementation can add anything related to the failure here.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/information.html">information</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Additional information about the failure. Implementation can add anything related to the failure here.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="1824300659%2FProperties%2F788909594" anchor-label="message" id="1824300659%2FProperties%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="1824300659%2FProperties%2F1558683979" anchor-label="message" id="1824300659%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#1824300659%2FProperties%2F788909594"><span><span>message</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1824300659%2FProperties%2F788909594"></span>
+                  <div><a href="index.html#1824300659%2FProperties%2F1558683979"><span><span>message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1824300659%2FProperties%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#1824300659%2FProperties%2F788909594">message</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="index.html#1824300659%2FProperties%2F1558683979">message</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1027746381%2FProperties%2F1558683979" anchor-label="payload" id="1027746381%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-failure/payload.html"><span><span>payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1027746381%2FProperties%2F1558683979"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-failure/payload.html">payload</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">When a payload is attached to a failure, it can be retrieved here. This field is not serialized.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -219,47 +277,47 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="1413214477%2FFunctions%2F788909594" anchor-label="defaults" id="1413214477%2FFunctions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+        <div class="table"><a data-name="1413214477%2FFunctions%2F1558683979" anchor-label="defaults" id="1413214477%2FFunctions%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/defaults.html"><span><span>defaults</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413214477%2FFunctions%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413214477%2FFunctions%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-failure/defaults.html"><span class="token function">defaults</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-generic-failure/index.html">GenericFailure</a></div><div class="brief "><p class="paragraph">Converts the current instance of a failure to a <a href="../-generic-failure/index.html">GenericFailure</a> instance. If the current instance is already a <a href="../-generic-failure/index.html">GenericFailure</a>, it is returned as is. Otherwise, a new <a href="../-generic-failure/index.html">GenericFailure</a> instance is created with the same values as the current instance.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-failure/defaults.html"><span class="token function">defaults</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-generic-failure/index.html">GenericFailure</a></div><div class="brief "><p class="paragraph">Converts the current instance of a failure to a <a href="../-generic-failure/index.html">GenericFailure</a> instance. If the current instance is already a <a href="../-generic-failure/index.html">GenericFailure</a>, it is returned as is. Otherwise, a new <a href="../-generic-failure/index.html">GenericFailure</a> instance is created with the same values as the current instance.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="584125520%2FFunctions%2F788909594" anchor-label="genericCopy" id="584125520%2FFunctions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="1174025331%2FFunctions%2F1558683979" anchor-label="genericCopy" id="1174025331%2FFunctions%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../generic-copy.html"><span>generic</span><wbr></wbr><span><span>Copy</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="584125520%2FFunctions%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1174025331%2FFunctions%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-failure/index.html">Failure</a><span class="token punctuation">.</span><a href="../generic-copy.html"><span class="token function">genericCopy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>this.id<span class="token punctuation">, </span></span><span class="parameter ">code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>this.code<span class="token punctuation">, </span></span><span class="parameter ">description<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>this.description<span class="token punctuation">, </span></span><span class="parameter ">information<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>this.information<span class="token punctuation">, </span></span><span class="parameter ">cause<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>this.cause<span class="token punctuation">, </span></span><span class="parameter ">attached<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-failure/index.html">Failure</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>this.attached?.map { it.genericCopy() }?.toSet()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-failure/index.html">Failure</a></div><div class="brief "><p class="paragraph">Creates a copy of the <a href="../-failure/index.html">Failure</a> instance with optional parameters.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../-failure/index.html">Failure</a><span class="token punctuation">.</span><a href="../generic-copy.html"><span class="token function">genericCopy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>this.id<span class="token punctuation">, </span></span><span class="parameter ">code<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>this.code<span class="token punctuation">, </span></span><span class="parameter ">description<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>this.description<span class="token punctuation">, </span></span><span class="parameter ">information<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>this.information<span class="token punctuation">, </span></span><span class="parameter ">cause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>this.cause<span class="token punctuation">, </span></span><span class="parameter ">attached<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../-failure/index.html">Failure</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>this.attached?.map { it.genericCopy() }?.toSet()<span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator"> = </span>this.payload</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-failure/index.html">Failure</a></div><div class="brief "><p class="paragraph">Creates a copy of the <a href="../-failure/index.html">Failure</a> instance with optional parameters.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-179569166%2FFunctions%2F788909594" anchor-label="throws" id="-179569166%2FFunctions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
-          <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
+<a data-name="-179569166%2FFunctions%2F1558683979" anchor-label="throws" id="-179569166%2FFunctions%2F1558683979" data-filterable-set=":/commonMain"></a>
+          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="../-failure/throws.html"><span><span>throws</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-179569166%2FFunctions%2F788909594"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-179569166%2FFunctions%2F1558683979"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-failure/throws.html"><span class="token function">throws</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html">Nothing</a></div><div class="brief "><p class="paragraph">Throws a <a href="index.html">FailureException</a> initialized with the current <a href="../-failure/index.html">Failure</a> instance.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-failure/throws.html"><span class="token function">throws</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-nothing/index.html">Nothing</a></div><div class="brief "><p class="paragraph">Throws a <a href="index.html">FailureException</a> initialized with the current <a href="../-failure/index.html">Failure</a> instance.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -269,11 +327,16 @@
     </div>
   </div>
 </div>
-      <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
-                class="pull-right"><span>Generated by </span><a
-                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
-      </div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
             </div>
         </div>
     </div>

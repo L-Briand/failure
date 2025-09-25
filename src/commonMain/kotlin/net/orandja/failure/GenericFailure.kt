@@ -22,4 +22,5 @@ data class GenericFailure(
     override val information: String? = null,
     @Transient override val cause: Throwable? = null,
     override val attached: Set<Failure>? = null,
+    @Transient override val payload: Any? = null,
 ) : Failure

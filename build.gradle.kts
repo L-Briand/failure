@@ -1,9 +1,10 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    kotlin("multiplatform") version "2.0.0"
-    kotlin("plugin.serialization") version "2.0.0"
-    id("org.jetbrains.dokka") version "1.9.10"
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dokka)
     id("maven-publish")
     id("signing")
 }
@@ -27,7 +28,6 @@ repositories {
 
 kotlin {
     jvm {
-        withJava()
         withSourcesJar(true)
         testRuns.named("test") {
             executionTask.configure { useJUnitPlatform() }
@@ -79,8 +79,8 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
-                val serialization = findProperty("version.serialization")!!
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization")
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.kotlin.serialization.cbor)
             }
         }
         getByName("commonTest") {
@@ -90,6 +90,14 @@ kotlin {
         }
     }
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+    compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_2_0)
+        languageVersion.set(KotlinVersion.KOTLIN_2_0)
+    }
+}
+
 
 publishing {
     publications.withType<MavenPublication> {
@@ -148,9 +156,10 @@ if (isSigningEnabled) {
 tasks.create<Delete>("cleanupGithubDocumentation") {
     delete(file("docs"))
 }
+
 tasks.create<Copy>("generateGithubDocumentation") {
     dependsOn("cleanupGithubDocumentation")
-    dependsOn("dokkaHtml")
+    dependsOn("dokkaGeneratePublicationHtml")
     val buildDir = layout.buildDirectory
     from(buildDir.dir("dokka/html")).into("docs")
 }

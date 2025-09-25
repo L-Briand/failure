@@ -9,6 +9,7 @@ import kotlinx.serialization.Serializable
  *
  * @property failure The Failure instance associated with the exception.
  */
+@Suppress("SERIALIZER_TYPE_INCOMPATIBLE")
 @Serializable(FailureSerializer::class)
 class FailureException(
     private val failure: Failure,

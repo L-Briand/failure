@@ -28,6 +28,9 @@ interface Failure {
     /** A set of other failures that are attached to this failure. */
     val attached: Set<Failure>?
 
+    /** When a payload is attached to a failure, it can be retrieved here. This field is not serialized. */
+    val payload: Any?
+
     /**
      * Throws a [FailureException] initialized with the current [Failure] instance.
      *
@@ -60,6 +63,7 @@ interface Failure {
  * @param information Additional information about the failure. Default is null.
  * @param cause The underlying cause of the failure, if any. Default is null.
  * @param attached A set of other failures that are attached to this failure. Default is null.
+ * @param payload An optional payload to attach to the failure. Default is null.
  * @return A new instance of [GenericFailure].
  */
 fun namedFailure(
@@ -68,11 +72,12 @@ fun namedFailure(
     information: String? = null,
     cause: Throwable? = null,
     attached: Set<Failure>? = null,
+    payload: Any? = null,
 ) = object : ReadOnlyProperty<Any?, GenericFailure> {
     var delegate: GenericFailure? = null
     override fun getValue(thisRef: Any?, property: KProperty<*>): GenericFailure {
         delegate?.let { return it }
-        delegate = GenericFailure(property.name, code, description, information, cause, attached)
+        delegate = GenericFailure(property.name, code, description, information, cause, attached, payload)
         return delegate !!
     }
 }
@@ -85,6 +90,7 @@ fun namedFailure(
  * @param information Additional information about the failure. Default is null.
  * @param cause The underlying cause of the failure, if any. Default is null.
  * @param attached A set of other failures that are attached to this failure. Default is null.
+ * @param payload An optional payload to attach to the failure. Default is null.
  * @return A new instance of [GenericFailure].
  */
 fun failure(
@@ -94,7 +100,8 @@ fun failure(
     information: String? = null,
     cause: Throwable? = null,
     attached: Set<Failure>? = null,
-) = GenericFailure(id, code, description, information, cause, attached)
+    payload: Any? = null,
+) = GenericFailure(id, code, description, information, cause, attached, payload)
 
 
 /**
@@ -105,6 +112,7 @@ fun failure(
  * @param information Additional information about the failure. Defaults to the value of the current [Failure] instance's information.
  * @param cause The underlying cause of the failure, if any. Defaults to the value of the current [Failure] instance's cause.
  * @param attached A set of other failures that are attached to this failure. Defaults to the value of the current [Failure] instance's attached.
+ * @param payload An optional payload to attach to the failure. Defaults to the value of the current [Failure] payload.
  * @return The newly created [GenericFailure] instance.
  */
 fun Failure.genericCopy(
@@ -114,7 +122,8 @@ fun Failure.genericCopy(
     information: String? = this.information,
     cause: Throwable? = this.cause,
     attached: Set<Failure>? = this.attached?.map { it.genericCopy() }?.toSet(),
-): Failure = GenericFailure(id, code, description, information, cause, attached)
+    payload: Any? = this.payload,
+): Failure = GenericFailure(id, code, description, information, cause, attached, payload)
 
 
 /**
@@ -124,7 +133,8 @@ fun Failure.genericCopy(
  * @param id a unique identifier for the failure (default value is "EXCEPTION").
  * @param description a human-readable description of the failure (default value is the simple name or qualified name of [T]).
  * @param information additional information about the failure (default value is the message of the throwable [T]).
- * @param attached a set of other failures that are attached to this failure (default value is null).
+ * @param attached a set of other failures that are attached to this failure. Default is null.
+ * @param payload An optional payload to attach to the failure. Default is null.
  * @return the [Failure] instance created from the throwable [T].
  */
 inline fun <reified T : Throwable> T.toFailure(
@@ -133,4 +143,5 @@ inline fun <reified T : Throwable> T.toFailure(
     description: String? = T::class.simpleName,
     information: String? = message,
     attached: Set<Failure>? = null,
-): Failure = GenericFailure(id, code, description, information, this, attached)
+    payload: Any? = null,
+): Failure = GenericFailure(id, code, description, information, this, attached, payload)

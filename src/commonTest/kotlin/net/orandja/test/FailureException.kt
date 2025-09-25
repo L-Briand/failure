@@ -1,5 +1,6 @@
 package net.orandja.test
 
+import kotlinx.serialization.builtins.ByteArraySerializer
 import net.orandja.failure.Failure
 import net.orandja.failure.FailureException
 import net.orandja.failure.failure
@@ -22,6 +23,7 @@ class FailureException {
     private val failureAttach1 = failure(TAG, attached = setOf(failureEmpty, failureFull))
     private val failureAttach2 = failure(TAG, attached = setOf(failureAttach1))
     private val failureException = failure(TAG, cause = cause)
+    private val failurePayload = failure(TAG, payload = "PAYLOAD")
 
     @Test
     fun empty() {
@@ -33,6 +35,7 @@ class FailureException {
 
     @Test
     fun full() {
+        ByteArraySerializer()
         val exception = catch { failureFull.throws() }
         assertFailureEquals(failureFull, exception)
         assertEquals(null, exception.cause)
@@ -80,6 +83,14 @@ class FailureException {
         assertEquals(failureEmpty.id, failure2.id)
         assertEquals(failureEmpty, failure2.defaults())
         assertNotEquals<Failure>(failureEmpty, failure2)
+    }
+
+    @Test
+    fun payload() {
+        val exception = catch { failurePayload.throws() }
+        assertFailureEquals(failurePayload, exception)
+        assertEquals(null, exception.cause)
+        assertEquals("PAYLOAD", exception.payload)
     }
 
     private fun catch(block: () -> Nothing): FailureException {
