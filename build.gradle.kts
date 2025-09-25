@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
@@ -5,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.sonatype.publish)
     id("maven-publish")
     id("signing")
 }
@@ -98,7 +100,6 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.ja
     }
 }
 
-
 publishing {
     publications.withType<MavenPublication> {
         val publicationName = this@withType.name
@@ -134,18 +135,21 @@ publishing {
 
     repositories {
         mavenLocal()
-        if (ossrhMavenEnabled) {
-            maven {
-                name = "sonatype"
-                setUrl("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-                credentials {
-                    username = ossrhUsername
-                    password = ossrhPassword
-                }
+    }
+}
+if(ossrhMavenEnabled) {
+    nexusPublishing {
+        repositories {
+            sonatype {
+                username = ossrhUsername
+                password = ossrhPassword
+                nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+                snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
             }
         }
     }
 }
+
 
 if (isSigningEnabled) {
     signing {
@@ -153,11 +157,11 @@ if (isSigningEnabled) {
     }
 }
 
-tasks.create<Delete>("cleanupGithubDocumentation") {
+tasks.register<Delete>("cleanupGithubDocumentation") {
     delete(file("docs"))
 }
 
-tasks.create<Copy>("generateGithubDocumentation") {
+tasks.register<Copy>("generateGithubDocumentation") {
     dependsOn("cleanupGithubDocumentation")
     dependsOn("dokkaGeneratePublicationHtml")
     val buildDir = layout.buildDirectory
