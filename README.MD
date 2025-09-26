@@ -15,7 +15,7 @@ repositories {
 }
 val commonMain by getting {
     dependencies {
-        implementation("net.orandja.kt:failure:2.0.1")
+        implementation("net.orandja.kt:failure:2.0.2")
     }
 }
 ```
@@ -27,7 +27,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("net.orandja.kt:failure:2.0.1")
+    implementation("net.orandja.kt:failure:2.0.2")
 }
 ```
 

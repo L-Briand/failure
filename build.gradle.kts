@@ -1,5 +1,5 @@
-import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
@@ -31,6 +31,9 @@ repositories {
 kotlin {
     jvm {
         withSourcesJar(true)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
         testRuns.named("test") {
             executionTask.configure { useJUnitPlatform() }
         }
