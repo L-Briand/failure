@@ -93,6 +93,11 @@ kotlin {
     }
 }
 
+tasks.withType(JavaCompile::class.java) {
+    sourceCompatibility = JavaVersion.VERSION_17.toString()
+    targetCompatibility = JavaVersion.VERSION_17.toString()
+}
+
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
     compilerOptions {
         apiVersion.set(KotlinVersion.KOTLIN_2_0)
